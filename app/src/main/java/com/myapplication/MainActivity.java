@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et_Date = findViewById(R.id.et_date);
+
         et_placeId = findViewById(R.id.et_placeId);
         et_userId = findViewById(R.id.et_userId);
         et_complaintHouseId = findViewById(R.id.et_complaintHouseId);
