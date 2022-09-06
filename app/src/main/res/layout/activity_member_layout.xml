@@ -26,7 +26,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_houseId"
+        android:id="@+id/edt_houseId"
         android:hint="HouseId"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -38,7 +38,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_memberName"
+        android:id="@+id/edt_memberName"
         android:hint="MemberName"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -50,7 +50,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_dob"
+        android:id="@+id/edt_dob"
         android:hint="DateOfBirth"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -62,7 +62,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_age"
+        android:id="@+id/edt_age"
         android:hint="Age"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -74,7 +74,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_gender"
+        android:id="@+id/edt_gender"
         android:hint="Gender"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -87,7 +87,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_contactNo"
+        android:id="@+id/edt_contactNo"
         android:hint="ContactNo"
         android:textSize="20sp"
         android:layout_marginTop="10dp"

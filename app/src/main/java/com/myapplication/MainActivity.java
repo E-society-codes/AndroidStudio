@@ -1,6 +1,5 @@
 package com.myapplication;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -14,7 +13,7 @@ import android.widget.EditText;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    EditText et_userId,et_complaintHouseId,et_date,et_complaint,et_isResolved;
+    EditText edt_userId,edt_complaintHouseId,edt_date,edt_complaint,edt_isResolved;
     Button btn_complaint;
 
     DatePickerDialog.OnDateSetListener setListener;
@@ -25,35 +24,35 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        et_userId = findViewById(R.id.et_userId);
-        et_complaintHouseId = findViewById(R.id.et_complaintHouseId);
-        et_date = findViewById(R.id.et_date);
-        et_complaint = findViewById(R.id.et_complaint);
-        et_isResolved  = findViewById(R.id.et_isResolved);
+        edt_userId = findViewById(R.id.edt_userId);
+        edt_complaintHouseId = findViewById(R.id.edt_complaintHouseId);
+        edt_date = findViewById(R.id.edt_date);
+        edt_complaint = findViewById(R.id.edt_complaint);
+        edt_isResolved  = findViewById(R.id.edt_isResolved);
         btn_complaint = findViewById(R.id.btn_complaint);
 
-//        btn_complaint.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                String pi = et_placeId.getText().toString();
-//                String ui = et_userId.getText().toString();
-//                String ci = et_complaintHouseId.getText().toString();
-//                String d = et_date.getText().toString();
-//                String c = et_complaint.getText().toString();
-//                String ir = et_isResolved.getText().toString();
-//
-//                Intent intent = new Intent(MainActivity.this,EventLayout.class);
-//                intent.putExtra("placeId",pi);
-//                intent.putExtra("userId",ui);
-//                intent.putExtra("complaintHouseId",ci);
-//                intent.putExtra("date",d);
-//                intent.putExtra("complaint",c);
-//                intent.putExtra("isResolved",ir);
-//
-//                startActivity(intent);
-//            }
-//        });
+        btn_complaint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                String ui = edt_userId.getText().toString();
+                String ci = edt_complaintHouseId.getText().toString();
+                String d = edt_date.getText().toString();
+                String c = edt_complaint.getText().toString();
+                String ir = edt_isResolved.getText().toString();
+
+                Intent intent = new Intent(MainActivity.this,ShowActivity.class);
+
+                intent.putExtra("userId",ui);
+                intent.putExtra("complaintHouseId",ci);
+                intent.putExtra("date",d);
+                intent.putExtra("complaint",c);
+                intent.putExtra("isResolved",ir);
+
+                startActivity(intent);
+            }
+        });
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
 
-        et_date.setOnClickListener(new View.OnClickListener() {
+        edt_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         month = month+1;
                         String date = day+"/"+month+"/"+year;
-                        et_date.setText(date);
+                        edt_date.setText(date);
                     }
                 },year,month,day);
                         datePickerDialog.show();

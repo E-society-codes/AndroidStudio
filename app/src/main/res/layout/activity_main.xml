@@ -25,7 +25,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_userId"
+        android:id="@+id/edt_userId"
         android:hint="UserId"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -37,7 +37,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_complaintHouseId"
+        android:id="@+id/edt_complaintHouseId"
         android:hint="HouseId"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -49,7 +49,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_date"
+        android:id="@+id/edt_date"
         android:hint="Date"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -61,7 +61,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_complaint"
+        android:id="@+id/edt_complaint"
         android:hint="Complaint"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -73,7 +73,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_isResolved"
+        android:id="@+id/edt_isResolved"
         android:hint="IsResolved"
         android:textSize="20sp"
         android:layout_marginTop="10dp"

@@ -26,7 +26,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_societyName"
+        android:id="@+id/edt_societyName"
         android:hint="SocietyName"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -38,7 +38,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_address"
+        android:id="@+id/edt_address"
         android:hint="Address"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -50,7 +50,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_city"
+        android:id="@+id/edt_city"
         android:hint="City"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -62,7 +62,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_pincode"
+        android:id="@+id/edt_pincode"
         android:hint="Pincode"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -74,7 +74,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_noOfHouse"
+        android:id="@+id/edt_noOfHouse"
         android:hint="NoOfHouse"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -87,7 +87,7 @@
     <android.widget.Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_society"
+        android:id="@+id/btn_addSociety"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Add Society"

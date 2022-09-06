@@ -27,7 +27,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_houseid"
+        android:id="@+id/edt_houseId"
         android:hint="HouseId"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -39,7 +39,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_userId"
+        android:id="@+id/edt_userId"
         android:hint="UserId"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -51,7 +51,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_eventDate"
+        android:id="@+id/edt_eventDate"
         android:hint="EventDate"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -63,7 +63,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_eventEndDate"
+        android:id="@+id/edt_eventEndDate"
         android:hint="EventEndDate"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -75,7 +75,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_eventDetail"
+        android:id="@+id/edt_eventDetail"
         android:hint="Event Details"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -87,7 +87,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_rent"
+        android:id="@+id/edt_rent"
         android:hint="Rent"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -99,7 +99,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_isAvailable"
+        android:id="@+id/edt_isAvailable"
         android:hint="IsAvailable"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -111,7 +111,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_placeId"
+        android:id="@+id/edt_placeId"
         android:hint="PlaceId"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
@@ -122,17 +122,16 @@
         />
 
     <android.widget.Button
+        android:id="@+id/btn_event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_event"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Add Event"
-        android:textSize="20sp"
-        android:padding="10dp"
         android:background="#B765A6"
+        android:padding="10dp"
+        android:text="Add Event"
         android:textColor="#000"
-        android:textStyle="bold"
-        />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
