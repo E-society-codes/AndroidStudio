@@ -48,30 +48,69 @@
         android:singleLine="true"
         android:imeOptions="actionDone"
         />
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edt_eventDate"
-        android:hint="EventDate"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:singleLine="true"
-        android:imeOptions="actionDone"
-        />
-    <EditText
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/tv_date"
+            android:hint="Date"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textColorHint="#000"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_date"
+            android:layout_marginTop="10dp"
+            android:background="#FFF0FF"
+            android:src="@drawable/ic_calendar"
+            android:padding="5dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edt_eventEndDate"
-        android:hint="EventEndDate"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:singleLine="true"
-        android:imeOptions="actionDone"
-        />
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/tv_eventEndDate"
+            android:hint="EventEndDate"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textColorHint="#000"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_endDate"
+            android:layout_marginTop="10dp"
+            android:background="#FFF0FF"
+            android:src="@drawable/ic_calendar"
+            android:padding="5dp"
+            />
+
+    </LinearLayout>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,18 +135,8 @@
         android:singleLine="true"
         android:imeOptions="actionDone"
         />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edt_isAvailable"
-        android:hint="IsAvailable"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:singleLine="true"
-        android:imeOptions="actionDone"
-        />
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -3,17 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/side_nav_bar.xml" value="0.1415" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_complaint_show.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_event.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_event_layout.xml" value="0.25" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_event_show.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_list_view_society.xml" value="0.264" />
-        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_member_layout.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_member_show.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_show.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_society_layout.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_society_show.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_society_show_date.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/app_bar_nativ.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/content_nativ.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_gallery.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_slideshow.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/nav_header_nativ.xml" value="0.23550724637681159" />
       </map>
     </option>
   </component>

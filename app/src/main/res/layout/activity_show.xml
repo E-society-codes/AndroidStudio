@@ -9,12 +9,34 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_complaintShow"
+        android:id="@+id/tv_data"
         android:text="This Is Your Complaint"
         android:layout_centerHorizontal="true"
         android:textSize="30dp"
         android:textStyle="bold"
         android:textColor="#000"
+        />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Date:"
+       android:textStyle="bold"
+       android:layout_below="@+id/tv_data"
+       android:textColor="#000"
+       android:textSize="20dp"
+       android:id="@+id/tv_complaintDate"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="complaint:"
+        android:textStyle="bold"
+        android:layout_below="@+id/tv_complaintDate"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:id="@+id/tv_complaint"
         />
 
 
