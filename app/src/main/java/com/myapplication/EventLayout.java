@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EventLayout extends AppCompatActivity {
-    EditText edtHouseId, edtUserId, edtEventDetails, edtRent, edtPlaceId;
+    EditText edtEventDetails, edtRent;
     Button btnAddEvent;
     TextView tvDate, tvEndDate;
     ImageButton btnDate, btnEndDate;
@@ -44,13 +46,12 @@ public class EventLayout extends AppCompatActivity {
         setContentView(R.layout.activity_event_layout);
 
 
-        edtHouseId = findViewById(R.id.edt_houseId);
         tvDate = findViewById(R.id.tv_date);
         tvEndDate = findViewById(R.id.tv_eventEndDate);
-        edtUserId = findViewById(R.id.edt_userId);
+
         edtEventDetails = findViewById(R.id.edt_eventDetail);
         edtRent = findViewById(R.id.edt_rent);
-        edtPlaceId = findViewById(R.id.edt_placeId);
+
 
         //date
         btnDate = findViewById(R.id.btn_date);
@@ -70,7 +71,17 @@ public class EventLayout extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(EventLayout.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tvDate.setText(year + "-" + 0 + (month + 1) + "-" + dayOfMonth);
+                        CharSequence strDate = null;
+                        Time chosenDate = new Time();
+                        chosenDate.set(dayOfMonth, month, year);
+                        long dtDob = chosenDate.toMillis(true);
+
+                        strDate = DateFormat.format("yyyy/MM/dd", dtDob);
+
+                        //txtDate.setText(strDate);
+
+
+                        tvDate.setText(strDate);
                     }
                 }, date, month, year);
                 datePickerDialog.show();
@@ -84,41 +95,43 @@ public class EventLayout extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(EventLayout.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tvEndDate.setText(year + "-" + 0 + (month + 1) + "-" + dayOfMonth);
+                        CharSequence strEndDate = null;
+                        Time chosenDate = new Time();
+                        chosenDate.set(dayOfMonth, month, year);
+                        long dtDob = chosenDate.toMillis(true);
+
+                        strEndDate = DateFormat.format("yyyy/MM/dd", dtDob);
+
+                        tvEndDate.setText(strEndDate);
                     }
-                }, year, month, date);
+                }, date, year, month);
                 datePickerDialog.show();
             }
         });
 
 
         //add event
-
         btnAddEvent = findViewById(R.id.btn_event);
 
 
         btnAddEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String strHouseId = edtHouseId.getText().toString();
-                String strUserid = edtUserId.getText().toString();
+
+
                 String strDate = tvDate.getText().toString();
                 String strEndDate = tvEndDate.getText().toString();
                 String strEventDetails = edtEventDetails.getText().toString();
                 String strRent = edtRent.getText().toString();
-                String strPlaceId = edtPlaceId.getText().toString();
 
 
-                Log.e("HouseId: ", strHouseId);
-                Log.e("Userid", strUserid);
                 Log.e("Date: ", strDate);
                 Log.e("EndDate: ", strEndDate);
                 Log.e("EventDetails:", strEventDetails);
                 Log.e("Rent", strRent);
-                Log.e("PlaceId", strPlaceId);
 
 
-                apiCall(strHouseId, strUserid, strDate, strEndDate, strEventDetails, strRent, strPlaceId);
+                apiCall(strDate, strEndDate, strEventDetails, strRent);
 
             }
 
@@ -127,31 +140,31 @@ public class EventLayout extends AppCompatActivity {
 
     }
 
-    private void apiCall(String strHouseId, String strUserId, String strDate, String strEndDate, String strEventDetails, String strRent, String strPlaceId) {
+    private void apiCall(String strDate, String strEndDate, String strEventDetails, String strRent) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, util.EVENT_URL, new Response.Listener<String>() {
             @Override
 
             public void onResponse(String response) {
                 Log.e("api calling done", response);
 
-                String h = edtHouseId.getText().toString();
-                String u = edtUserId.getText().toString();
-                String d = tvDate.getText().toString();
-                String ed = tvEndDate.getText().toString();
-                String de = edtEventDetails.getText().toString();
-                String r = edtRent.getText().toString();
-                String pi = edtPlaceId.getText().toString();
+//                String strHouseId = edtHouseId.getText().toString();
+//                String strUserId = edtUserId.getText().toString();
+//                String strDate = tvDate.getText().toString();
+//                String strEndDate = tvEndDate.getText().toString();
+//                String strEventDetails = edtEventDetails.getText().toString();
+//                String strRent = edtRent.getText().toString();
+//                String strPlaceId = edtPlaceId.getText().toString();
 
 
                 Intent intent = new Intent(EventLayout.this, EventShowActivity.class);
 
-                intent.putExtra("houseId",h);
-                intent.putExtra("userId",u);
-                intent.putExtra("eventDate",d);
-                intent.putExtra("eventEndDate",ed);
-                intent.putExtra("details",de);
-                intent.putExtra("rent",r);
-                intent.putExtra("placeId",pi);
+//                intent.putExtra("houseId",strHouseId);
+//                intent.putExtra("userId",strUserId);
+//                intent.putExtra("eventDate",strDate);
+//                intent.putExtra("eventEndDate",strEndDate);
+//                intent.putExtra("details",strEventDetails);
+//                intent.putExtra("rent",strRent);
+//                intent.putExtra("placeId",strPlaceId);
                 startActivity(intent);
             }
         }, new Response.ErrorListener() {
@@ -165,20 +178,19 @@ public class EventLayout extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> hashMap = new HashMap<>();
-                hashMap.put("house", strHouseId);
-                hashMap.put("user", strUserId);
+
                 hashMap.put("eventDate", strDate);
                 hashMap.put("eventEndDate", strEndDate);
                 hashMap.put("eventDetails", strEventDetails);
                 hashMap.put("rent", strRent);
-                hashMap.put("placeId", strPlaceId);
+
 
                 return hashMap;
 
 
             }
         };
-        VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
+        VolleySingleton.getInstance(EventLayout.this).addToRequestQueue(stringRequest);
 
     }
 }
