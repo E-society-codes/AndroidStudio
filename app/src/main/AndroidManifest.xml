@@ -20,9 +20,6 @@
             android:name=".EventLayout"
             android:exported="false" />
         <activity
-            android:name=".SocietyShowActivity"
-            android:exported="false" />
-        <activity
             android:name=".MemberShowActivity"
             android:exported="false" />
         <!--        <activity-->

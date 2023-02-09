@@ -43,12 +43,12 @@ public class EventListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 
+        //update
+
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = layoutInflater.inflate(R.layout.raw_list, null);
 
         TextView TvData = view.findViewById(R.id.tv_data);
-
-
         TvData.setText(eventLangModelArrayList.get(position).get_id() + ""
                 + eventLangModelArrayList.get(position).getDate() + ""
                 + eventLangModelArrayList.get(position).getEventDate() + ""
