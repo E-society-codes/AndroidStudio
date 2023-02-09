@@ -26,7 +26,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.myapplication.utils.VolleySingleton;
 import com.myapplication.utils.util;
 
-import java.text.BreakIterator;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,9 +35,6 @@ public class EventLayout extends AppCompatActivity {
     Button btnAddEvent;
     TextView tvDate, tvEndDate;
     ImageButton btnDate, btnEndDate;
-
-
-    DatePickerDialog.OnDateSetListener setListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +79,7 @@ public class EventLayout extends AppCompatActivity {
 
                         tvDate.setText(strDate);
                     }
-                }, date, month, year);
+                },year,month, date);
                 datePickerDialog.show();
             }
         });
@@ -104,7 +100,7 @@ public class EventLayout extends AppCompatActivity {
 
                         tvEndDate.setText(strEndDate);
                     }
-                }, date, year, month);
+                },year,month, date);
                 datePickerDialog.show();
             }
         });
@@ -147,24 +143,8 @@ public class EventLayout extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.e("api calling done", response);
 
-//                String strHouseId = edtHouseId.getText().toString();
-//                String strUserId = edtUserId.getText().toString();
-//                String strDate = tvDate.getText().toString();
-//                String strEndDate = tvEndDate.getText().toString();
-//                String strEventDetails = edtEventDetails.getText().toString();
-//                String strRent = edtRent.getText().toString();
-//                String strPlaceId = edtPlaceId.getText().toString();
-
-
                 Intent intent = new Intent(EventLayout.this, EventShowActivity.class);
 
-//                intent.putExtra("houseId",strHouseId);
-//                intent.putExtra("userId",strUserId);
-//                intent.putExtra("eventDate",strDate);
-//                intent.putExtra("eventEndDate",strEndDate);
-//                intent.putExtra("details",strEventDetails);
-//                intent.putExtra("rent",strRent);
-//                intent.putExtra("placeId",strPlaceId);
                 startActivity(intent);
             }
         }, new Response.ErrorListener() {
@@ -172,7 +152,6 @@ public class EventLayout extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-
 
         }) {
             @Override
@@ -184,9 +163,7 @@ public class EventLayout extends AppCompatActivity {
                 hashMap.put("eventDetails", strEventDetails);
                 hashMap.put("rent", strRent);
 
-
                 return hashMap;
-
 
             }
         };

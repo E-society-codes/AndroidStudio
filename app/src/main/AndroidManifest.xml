@@ -17,7 +17,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".EventShowActivity"
+            android:name=".EventLayout"
             android:exported="false" />
         <activity
             android:name=".SocietyShowActivity"
@@ -25,22 +25,17 @@
         <activity
             android:name=".MemberShowActivity"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ShowActivity"
-            android:exported="false" />
-        <activity
+        <!--        <activity-->
+<!--            android:name=".ShowActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
             android:name=".societyLayout"
             android:exported="false" />
         <activity
             android:name=".memberLayout"
-            android:exported="false" /> <!-- <activity -->
-        <!-- />/ android:name=".EventLayout" -->
-        <!-- android:exported="false" /> -->
+            android:exported="false" />
         <activity
-            android:name=".EventLayout"
+            android:name=".EventShowActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

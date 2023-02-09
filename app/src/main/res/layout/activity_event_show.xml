@@ -1,114 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventShowActivity">
+    tools:context=".EventShowActivity"
+    android:padding="20dp">
 
     <TextView
-        android:id="@+id/yourEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_EventInfo"
         android:text="Your Event Details"
-        android:textColor="#000"
+        android:layout_centerHorizontal="true"
         android:textSize="30dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_houseId"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:textColor="#000"
+        />
+    <ListView
+        android:id="@+id/event_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/yourEvent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="HouseId:"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
+        android:layout_marginTop="20dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="20dp"
         android:textColor="#000"
-        android:textColorHint="#000"
         android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/tv_userId"
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_houseId"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="UserId:"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/tv_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_userId"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Date:"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/tv_eventEndDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_date"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="EventEndDate:"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/tv_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_eventEndDate"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="EventDetails:"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/tv_rent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_details"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Rent:"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/tv_placeId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_rent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="PlaceId:"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:textColor="#000"
-        android:textColorHint="#000"
-        android:textSize="20sp" />
+        android:id="@+id/btn_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        />
 
 
-</RelativeLayout>
+</LinearLayout>
