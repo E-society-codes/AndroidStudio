@@ -212,6 +212,7 @@ public class eventUpdateActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> hashMap = new HashMap<>();
+                Log.e("id in update map:",strEventID);
                 hashMap.put("eventId", strEventID);
                 hashMap.put("eventDate", strEventDate);
                 hashMap.put("eventEndDate", strEventEndDate);

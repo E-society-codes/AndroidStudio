@@ -43,11 +43,11 @@ public class EventShowActivity extends AppCompatActivity {
             }
         });
 
-        MaintenanceApi();
+        EventApi();
 
     }
 
-    private void MaintenanceApi() {
+    private void EventApi() {
         ArrayList<EventLangModel> arrayList=new ArrayList<EventLangModel>();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, util.EVENT_URL, new Response.Listener<String>() {
@@ -69,7 +69,6 @@ public class EventShowActivity extends AppCompatActivity {
                         eventLangModel.setEventDate(strEndDate);
                         eventLangModel.setEventDetails(strEvent);
                         eventLangModel.setRent(strRent);
-
 
                         arrayList.add(eventLangModel);
                     }

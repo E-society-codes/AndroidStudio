@@ -41,7 +41,6 @@ public class EventLayout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_layout);
 
-
         tvDate = findViewById(R.id.tv_date);
         tvEndDate = findViewById(R.id.tv_eventEndDate);
 
@@ -79,7 +78,7 @@ public class EventLayout extends AppCompatActivity {
 
                         tvDate.setText(strDate);
                     }
-                },year,month, date);
+                }, year, month, date);
                 datePickerDialog.show();
             }
         });
@@ -100,7 +99,7 @@ public class EventLayout extends AppCompatActivity {
 
                         tvEndDate.setText(strEndDate);
                     }
-                },year,month, date);
+                }, year, month, date);
                 datePickerDialog.show();
             }
         });

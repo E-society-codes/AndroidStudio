@@ -70,7 +70,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_Mdate"
+            android:id="@+id/btn_memberDate"
             android:layout_marginTop="10dp"
             android:background="#FFF0FF"
             android:src="@drawable/ic_calendar"

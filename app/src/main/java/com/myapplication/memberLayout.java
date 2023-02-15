@@ -18,7 +18,7 @@ import java.util.Calendar;
 
 public class memberLayout extends AppCompatActivity {
     EditText edtHouseId,edtMemberName,edtAge,edtGender,edtContactNo;
-    TextView tvDateOfBirth,tvGender;
+    TextView tv_dateOfBirth,tvGender;
     RadioButton radioMale,radioFemale;
     ImageButton btnDate;
     Button addMember;
@@ -38,13 +38,13 @@ public class memberLayout extends AppCompatActivity {
         edtMemberName = findViewById(R.id.edt_memberName);
         edtAge = findViewById(R.id.edt_age);
 
-        tvDateOfBirth = findViewById(R.id.tv_dateOfBirth);
+        tv_dateOfBirth = findViewById(R.id.tv_dateOfBirth);
         tvGender = findViewById(R.id.tv_gender);
         edtContactNo = findViewById(R.id.edt_contactNo);
         radioMale = findViewById(R.id.radio_male);
         radioFemale = findViewById(R.id.radio_female);
         addMember = findViewById(R.id.btn_member);
-        btnDate = findViewById(R.id.btn_Mdate);
+        btnDate = findViewById(R.id.btn_memberDate);
 
 
 
@@ -61,7 +61,7 @@ public class memberLayout extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(memberLayout.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tvDateOfBirth.setText(dayOfMonth+"-"+(month+1)+"-"+year);
+                        tv_dateOfBirth.setText(dayOfMonth+"-"+(month+1)+"-"+year);
                     }
                 },date,month,year);
                 datePickerDialog.show();
@@ -76,9 +76,9 @@ public class memberLayout extends AppCompatActivity {
                 String hi = edtHouseId.getText().toString();
                 String mn = edtMemberName.getText().toString();
                 String ag = edtAge.getText().toString();
-                String gn = edtGender.getText().toString();
+               // String gn = edtGender.getText().toString();
                 String cn = edtContactNo.getText().toString();
-                String dob = tvDateOfBirth.getText().toString();
+                String dob = tv_dateOfBirth.getText().toString();
 
 
                 Intent intent = new Intent(memberLayout.this,MemberShowActivity.class);
@@ -86,7 +86,7 @@ public class memberLayout extends AppCompatActivity {
                 intent.putExtra("houseId",hi);
                 intent.putExtra("memberName",mn);
                 intent.putExtra("age",ag);
-                intent.putExtra("gender",gn);
+               // intent.putExtra("gender",gn);
                 intent.putExtra("contactNo.",cn);
                 intent.putExtra("dateOfBirth",dob);
 
@@ -94,6 +94,9 @@ public class memberLayout extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
 
 
 

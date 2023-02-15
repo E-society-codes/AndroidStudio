@@ -7,13 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class EventListAdapter extends BaseAdapter {
@@ -44,7 +40,6 @@ public class EventListAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup viewGroup) {
 
         //update
-
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = layoutInflater.inflate(R.layout.raw_list, null);
 
@@ -55,7 +50,6 @@ public class EventListAdapter extends BaseAdapter {
                 + eventLangModelArrayList.get(position).getEventDetails() + "" + eventLangModelArrayList.get(position).getRent());
 
         ImageView imgEdit = view.findViewById(R.id.img_edit);
-        ImageView imgDelete = view.findViewById(R.id.img_delete);
 
         imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override

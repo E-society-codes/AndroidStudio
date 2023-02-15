@@ -1,7 +1,7 @@
 package com.myapplication;
 
 public class EventLangModel {
-    String _id,date,eventDate,eventDetails,rent;
+    String _id, date, eventDate, eventDetails, rent;
 
     public String get_id() {
         return _id;
