@@ -21,13 +21,10 @@
             android:exported="false" />
         <activity
             android:name=".MemberShowActivity"
-            android:exported="false" />
-        <!--        <activity-->
-<!--            android:name=".ShowActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-            android:name=".societyLayout"
-            android:exported="false" />
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".ShowActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
         <activity
             android:name=".EventShowActivity"
             android:exported="false" />

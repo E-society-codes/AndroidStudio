@@ -1,12 +1,22 @@
 package com.myapplication;
 
 public class MemberLangModel {
-    String _id,memberName,dateOfBirth,age,gender,contactNo;
+    String _id,houseId,memberName,dateOfBirth,age,gender,contactNo;
 
-    public String get_id() {return _id;}
+    public String get_id() {
+        return _id;
+    }
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public String getHouseId() {
+        return houseId;
+    }
+
+    public void setHouseId(String houseId) {
+        this.houseId = houseId;
     }
 
     public String getMemberName() {

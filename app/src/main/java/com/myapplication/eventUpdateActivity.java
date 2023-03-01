@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class eventUpdateActivity extends AppCompatActivity {
 
-    EditText edt_eventDetail,edt_rent,edt_HouseId;
+    EditText edt_eventDetail, edt_rent, edt_HouseId;
     Button btn_event;
     TextView tvDate, tvEndDate;
     ImageButton btnDate, btnEndDate;
@@ -40,6 +40,9 @@ public class eventUpdateActivity extends AppCompatActivity {
     private int year;
     private String id;
 
+    public eventUpdateActivity() {
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +51,11 @@ public class eventUpdateActivity extends AppCompatActivity {
 
         Intent i = getIntent();
 
-       edt_eventDetail = findViewById(R.id.edt_eventDetail);
-       edt_rent = findViewById(R.id.edt_rent);
-       btn_event = findViewById(R.id.btn_event);
-       btnDate = findViewById(R.id.btn_date);
-       btnEndDate = findViewById(R.id.btn_endDate);
-
-
+        edt_eventDetail = findViewById(R.id.edt_eventDetail);
+        edt_rent = findViewById(R.id.edt_rent);
+        btn_event = findViewById(R.id.btn_event);
+        btnDate = findViewById(R.id.btn_date);
+        btnEndDate = findViewById(R.id.btn_endDate);
 
 
         //    Log.e("MAINTENANCE_ID", String.valueOf(maintenanceId));
@@ -69,7 +70,6 @@ public class eventUpdateActivity extends AppCompatActivity {
         edt_HouseId.setText(strEventHouse);
 
 
-
         //set text
         EventLangModel eventLangModel = new EventLangModel();
         edt_eventDetail.setText(strEventDetails);
@@ -78,39 +78,26 @@ public class eventUpdateActivity extends AppCompatActivity {
         tvEndDate.setText(strEventEndDate);
 
 
-
-
-        //normal code
-       btn_event.setText("Update Event");
-//        btnDeleteMaintenance.setVisibility(View.VISIBLE);
-//        btnDeleteMaintenance.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                deleteAPI(maintenanceId);
-//            }
-//        });
         btn_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
                 String strEventDate = tvEndDate.getText().toString();
-                String strEventEndDate =tvDate.getText().toString();
+                String strEventEndDate = tvDate.getText().toString();
                 String strEventDetails = edt_eventDetail.getText().toString();
                 String strRent = edt_rent.getText().toString();
 
 
-               Log.e("Date",strEventDate);
+                Log.e("Date", strEventDate);
                 Log.e("EndDate ", strEventEndDate);
-                Log.e("EventDetails",strEventDetails);
+                Log.e("EventDetails", strEventDetails);
 
 
-                apiCall(strEventId, strEventDate, strEventEndDate, strEventDetails , strRent);
+                apiCall(strEventId, strEventDate, strEventEndDate, strEventDetails, strRent);
 
             }
         });
-
-
 
 
         //date
@@ -162,37 +149,8 @@ public class eventUpdateActivity extends AppCompatActivity {
 
 
     }
-    // 6336d0a385dc006ba7319c3b
-//    private void deleteAPI(String id1) {
-//
-//        Log.e("TAG****", "deleteAPI UPdate "+id1);
-//        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, Utils.MAINTENANCE_URL, new Response.Listener<String>() {
-//            @Override
-//
-//            public void onResponse(String response) {
-//                Log.e("api calling done", response);
-//                Intent intent = new Intent(MaintenanceUpdateActivity.this, MaintenanceDisplayActivity.class);
-//                startActivity(intent);
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        }) {
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> hashMap = new HashMap<>();
-//                hashMap.put("maintenanceId", id1);
-//                return hashMap;
-//
-//
-//            }
-//        };
-//        VolleySingleton.getInstance(MaintenanceUpdateActivity.this).addToRequestQueue(stringRequest);
-//
-//
-//    }
+
+
 
     private void apiCall(String strEventID, String strEventDate, String strEventEndDate ,String strEventDetails , String strRent ) {
         StringRequest stringRequest = new StringRequest(Request.Method.PUT, util.EVENT_URL, new Response.Listener<String>() {

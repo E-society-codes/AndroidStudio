@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,7 +15,17 @@ import android.widget.QuickContactBadge;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.myapplication.utils.VolleySingleton;
+import com.myapplication.utils.util;
+
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class memberLayout extends AppCompatActivity {
     EditText edtHouseId,edtMemberName,edtAge,edtGender,edtContactNo;
@@ -73,32 +84,73 @@ public class memberLayout extends AppCompatActivity {
         addMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String hi = edtHouseId.getText().toString();
-                String mn = edtMemberName.getText().toString();
-                String ag = edtAge.getText().toString();
+                String houseId = edtHouseId.getText().toString();
+                String memberName = edtMemberName.getText().toString();
+                String age = edtAge.getText().toString();
                // String gn = edtGender.getText().toString();
-                String cn = edtContactNo.getText().toString();
-                String dob = tv_dateOfBirth.getText().toString();
+                String contactNumber = edtContactNo.getText().toString();
+                String dateOfBirth = tv_dateOfBirth.getText().toString();
+
+                Log.e("HouseId:", houseId);
+                Log.e("MemberName:" , memberName);
+                Log.e("Age:" , age);
+                Log.e("ContactNumber" ,  contactNumber);
+                Log.e("DateOfBirth" ,  dateOfBirth);
+
+
 
 
                 Intent intent = new Intent(memberLayout.this,MemberShowActivity.class);
 
-                intent.putExtra("houseId",hi);
-                intent.putExtra("memberName",mn);
-                intent.putExtra("age",ag);
+                intent.putExtra("houseId",houseId);
+                intent.putExtra("memberName",memberName);
+                intent.putExtra("age",age);
                // intent.putExtra("gender",gn);
-                intent.putExtra("contactNo.",cn);
-                intent.putExtra("dateOfBirth",dob);
+                intent.putExtra("contactNo.",contactNumber);
+                intent.putExtra("dateOfBirth",dateOfBirth);
+
+                apiCall(houseId,memberName,age,contactNumber,dateOfBirth);
 
 
                 startActivity(intent);
             }
         });
+    }
 
 
+    private void apiCall(String strHouseId, String strMemberName, String strAge, String strContactNumber , String strDateOfBirt) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, util.MEMBER_URL, new Response.Listener<String>() {
+            @Override
 
+            public void onResponse(String response) {
+                Log.e("api calling done", response);
 
+                Intent intent = new Intent(memberLayout.this, MemberShowActivity.class);
 
+                startActivity(intent);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> hashMap = new HashMap<>();
+
+                hashMap.put("houseId" , strHouseId);
+                hashMap.put("memberName" , strMemberName);
+                hashMap.put("age" , strAge);
+                hashMap.put("contactNo" , strContactNumber);
+                hashMap.put("dateOfBirth" , strDateOfBirt);
+
+                return hashMap;
+
+            }
+        };
+        VolleySingleton.getInstance(memberLayout.this).addToRequestQueue(stringRequest);
 
     }
 

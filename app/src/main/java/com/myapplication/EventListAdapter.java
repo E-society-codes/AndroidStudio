@@ -45,9 +45,12 @@ public class EventListAdapter extends BaseAdapter {
 
         TextView TvData = view.findViewById(R.id.tv_data);
         TvData.setText(eventLangModelArrayList.get(position).get_id() + ""
+                +eventLangModelArrayList.get(position).getHouse_id()+""
+                +eventLangModelArrayList.get(position).getPlace_id()+""
                 + eventLangModelArrayList.get(position).getDate() + ""
                 + eventLangModelArrayList.get(position).getEventDate() + ""
-                + eventLangModelArrayList.get(position).getEventDetails() + "" + eventLangModelArrayList.get(position).getRent());
+                + eventLangModelArrayList.get(position).getEventDetails() + ""
+                + eventLangModelArrayList.get(position).getRent());
 
         ImageView imgEdit = view.findViewById(R.id.img_edit);
 
@@ -59,9 +62,12 @@ public class EventListAdapter extends BaseAdapter {
 
                 Intent intent = new Intent(context, eventUpdateActivity.class);
                 intent.putExtra("EVENT_ID", id);
+                intent.putExtra("HOUSE ID",eventLangModelArrayList.get(position).getHouse_id());
+                intent.putExtra("PLACE ID",eventLangModelArrayList.get(position).getPlace_id());
                 intent.putExtra("EVENT DATE", eventLangModelArrayList.get(position).getDate());
                 intent.putExtra("EVENT END DATE", eventLangModelArrayList.get(position).getEventDate());
                 intent.putExtra("EVENT DETAILS", eventLangModelArrayList.get(position).getEventDetails());
+                intent.putExtra("EVENT RENT",eventLangModelArrayList.get(position).getRent());
 
                 context.startActivity(intent);
             }
