@@ -9,7 +9,11 @@ import android.text.format.DateFormat;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -23,24 +27,24 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class activity_feedback extends AppCompatActivity {
+public class FeedbackLayout extends AppCompatActivity {
+    EditText edt_feedbackId,edt_feedbackHouseId,edt_giveFeedbackId,edt_acknowledgement;
+    TextView tv_feedbackDate;
+    ImageButton btn_feedbackDate;
+    Button btn_feedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feedback);
-
-        
-
-        edtEventDetails = findViewById(R.id.edt_eventDetail);
-        edtRent = findViewById(R.id.edt_rent);
+        setContentView(R.layout.feedback);
 
 
-        //date
-        btnDate = findViewById(R.id.btn_date);
-        btnEndDate = findViewById(R.id.btn_endDate);
-        tvDate = findViewById(R.id.tv_date);
-        tvEndDate = findViewById(R.id.tv_eventEndDate);
+
+        edt_feedbackId = findViewById(R.id.edt_feedbackId);
+        edt_feedbackHouseId = findViewById(R.id.edt_feedbackHouseId);
+        edt_giveFeedbackId = findViewById(R.id.edt_giveFeedbackId);
+        edt_acknowledgement = findViewById(R.id.edt_acknowledgement);
+
 
         Calendar calendar = Calendar.getInstance();
         int date = calendar.get(Calendar.DAY_OF_MONTH);
@@ -48,10 +52,10 @@ public class activity_feedback extends AppCompatActivity {
         int year = calendar.get(Calendar.YEAR);
 
 
-        btnDate.setOnClickListener(new View.OnClickListener() {
+        btn_feedbackDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(EventLayout.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(FeedbackLayout.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         CharSequence strDate = null;
@@ -64,57 +68,40 @@ public class activity_feedback extends AppCompatActivity {
                         //txtDate.setText(strDate);
 
 
-                        tvDate.setText(strDate);
+                        tv_feedbackDate.setText(strDate);
                     }
                 }, year, month, date);
                 datePickerDialog.show();
             }
         });
 
-        btnEndDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(EventLayout.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        CharSequence strEndDate = null;
-                        Time chosenDate = new Time();
-                        chosenDate.set(dayOfMonth, month, year);
-                        long dtDob = chosenDate.toMillis(true);
-
-                        strEndDate = DateFormat.format("yyyy/MM/dd", dtDob);
-
-                        tvEndDate.setText(strEndDate);
-                    }
-                }, year, month, date);
-                datePickerDialog.show();
-            }
-        });
 
 
         //add event
-        btnAddEvent = findViewById(R.id.btn_event);
+        btn_feedback = findViewById(R.id.btn_feedback);
 
 
-        btnAddEvent.setOnClickListener(new View.OnClickListener() {
+        btn_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                String strDate = tvDate.getText().toString();
-                String strEndDate = tvEndDate.getText().toString();
-                String strEventDetails = edtEventDetails.getText().toString();
-                String strRent = edtRent.getText().toString();
+               String strFeedbackId = edt_feedbackId.getText().toString();
+               String strHouseId = edt_feedbackHouseId.getText().toString();
+               String strDate = tv_feedbackDate.getText().toString();
+               String strFeedback = edt_giveFeedbackId.getText().toString();
+               String strAcknowledgement = edt_acknowledgement.getText().toString();
 
-
+                Log.e("FeedbackId:",strFeedbackId);
+                Log.e("HouseId:",strHouseId);
                 Log.e("Date: ", strDate);
-                Log.e("EndDate: ", strEndDate);
-                Log.e("EventDetails:", strEventDetails);
-                Log.e("Rent", strRent);
+                Log.e("Feedback: ",strFeedback);
+                Log.e("Acknowledgement: ",strAcknowledgement);
 
 
-                apiCall(strDate, strEndDate, strEventDetails, strRent);
+
+                apiCall(strFeedbackId,strHouseId,strDate,strFeedback,strAcknowledgement);
 
             }
 
@@ -123,14 +110,14 @@ public class activity_feedback extends AppCompatActivity {
 
     }
 
-    private void apiCall(String strDate, String strEndDate, String strEventDetails, String strRent) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, util.EVENT_URL, new Response.Listener<String>() {
+    private void apiCall(String strFeedbackId, String strHouseId, String strDate, String strFeedback, String strAcknowledgement) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, util.FEEDBACK_URL, new Response.Listener<String>() {
             @Override
 
             public void onResponse(String response) {
                 Log.e("api calling done", response);
 
-                Intent intent = new Intent(EventLayout.this, EventShowActivity.class);
+                Intent intent = new Intent(FeedbackLayout.this, FeedbackShowActivity.class);
 
                 startActivity(intent);
             }
@@ -145,17 +132,17 @@ public class activity_feedback extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> hashMap = new HashMap<>();
 
-                hashMap.put("eventDate", strDate);
-                hashMap.put("eventEndDate", strEndDate);
-                hashMap.put("eventDetails", strEventDetails);
-                hashMap.put("rent", strRent);
+                hashMap.put("feedbackId", strFeedbackId);
+                hashMap.put("houseID", strHouseId);
+                hashMap.put("date", strDate);
+                hashMap.put("feedback", strFeedback);
+                hashMap.put("acknowledgement",strAcknowledgement);
 
                 return hashMap;
 
             }
         };
-        VolleySingleton.getInstance(EventLayout.this).addToRequestQueue(stringRequest);
+        VolleySingleton.getInstance(FeedbackLayout.this).addToRequestQueue(stringRequest);
 
-    }
     }
 }

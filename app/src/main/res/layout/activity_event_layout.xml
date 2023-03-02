@@ -26,8 +26,20 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edt_eventId"
-        android:hint="Event Id"
+        android:id="@+id/edt_placeId"
+        android:hint="Place Id"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_houseId"
+        android:hint="house Id"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         android:textColor="#000"

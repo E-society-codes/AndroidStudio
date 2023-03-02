@@ -10,6 +10,8 @@
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_event.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_event_layout.xml" value="0.25" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_event_show.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_feedback.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_feedback_show.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_feedbackupdate.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_list_view_society.xml" value="0.264" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -22,6 +24,7 @@
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/app_bar_nativ.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/content_nativ.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/feedback.xml" value="0.19262782401902498" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_gallery.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/JAINAM/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_slideshow.xml" value="0.23550724637681159" />
