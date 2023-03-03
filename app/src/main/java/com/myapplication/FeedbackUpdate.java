@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class FeedbackUpdate extends AppCompatActivity {
 
-    EditText edt_feedbackId,edt_feedbackHouseId,edt_giveFeedbackId,edt_acknowledgement;
+    EditText edt_feedbackHouseId,edt_giveFeedbackId,edt_acknowledgement;
     TextView tv_feedbackDate;
     ImageButton btn_feedbackDate;
     Button btn_feedback;
@@ -50,7 +50,6 @@ public class FeedbackUpdate extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        edt_feedbackId = findViewById(R.id.edt_feedbackId);
         edt_feedbackHouseId = findViewById(R.id.edt_feedbackHouseId);
         edt_giveFeedbackId = findViewById(R.id.edt_giveFeedbackId);
         edt_acknowledgement = findViewById(R.id.edt_acknowledgement);
@@ -60,8 +59,8 @@ public class FeedbackUpdate extends AppCompatActivity {
 
 
         //    Log.e("MAINTENANCE_ID", String.valueOf(maintenanceId));
-        String strFeedbackId = i.getStringExtra("FEEDBACK ID");
-        String strHouseId = i.getStringExtra("HOUSE NAME");
+        String strFeedbackId = i.getStringExtra("FEEDBACK_ID");
+        String strHouseId = i.getStringExtra("FEEDBACK_HOUSE");
         String strFeedback = i.getStringExtra("FEEDBACK");
         String strDate = i.getStringExtra("DATE");
         String strAcknowledgement = i.getStringExtra("ACKNOWLEDGEMENT");
@@ -72,7 +71,6 @@ public class FeedbackUpdate extends AppCompatActivity {
         //set text
         MemberLangModel memberLangModel = new MemberLangModel();
         edt_feedbackHouseId.setText(strHouseId);
-        edt_feedbackId.setText(strFeedbackId);
         edt_giveFeedbackId.setText(strFeedback);
         tv_feedbackDate.setText(strDate);
         edt_acknowledgement.setText(strAcknowledgement);
@@ -84,21 +82,15 @@ public class FeedbackUpdate extends AppCompatActivity {
 
 
                 String strHouseId = edt_feedbackHouseId.getText().toString();
-                String strFeedbackId = edt_feedbackId.getText().toString();
                 String strFeedback = edt_giveFeedbackId.getText().toString();
                 String strDate = tv_feedbackDate.getText().toString();
                 String strAcknowledgement = edt_acknowledgement.getText().toString();
 
 
-                Log.e("House Id",strHouseId );
-                Log.e("Feedback Id ", strFeedbackId);
-                Log.e("Feedback", strFeedback);
-                Log.e("Date", strDate);
-                Log.e("Acknowledgement", strAcknowledgement);
 
 
 
-                apiCall(strHouseId,strFeedbackId,strFeedback,strDate,strAcknowledgement );
+                apiCall(strFeedbackId,strHouseId,strFeedback,strDate,strAcknowledgement );
 
             }
         });
@@ -137,13 +129,13 @@ public class FeedbackUpdate extends AppCompatActivity {
 
 
 
-    private void apiCall(String strHouseId, String strFeedbackId, String strFeedback ,String strDate , String strAcknowledgement ) {
+    private void apiCall(String strFeedbackId,String strHouseId, String strFeedback ,String strDate , String strAcknowledgement ) {
         StringRequest stringRequest = new StringRequest(Request.Method.PUT, util.MEMBER_URL, new Response.Listener<String>() {
             @Override
 
             public void onResponse(String response) {
                 Log.e("api calling done", response);
-                Intent intent = new Intent(FeedbackUpdate.this, MemberShowActivity.class);
+                Intent intent = new Intent(FeedbackUpdate.this, FeedbackShowActivity.class);
                 startActivity(intent);
             }
         }, new Response.ErrorListener() {
@@ -156,6 +148,7 @@ public class FeedbackUpdate extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> hashMap = new HashMap<>();
                 Log.e("id in update map:",strHouseId);
+                hashMap.put("houseId" , strHouseId);
                 hashMap.put("feedbackId", strFeedbackId);
                 hashMap.put("feedback", strFeedback);
                 hashMap.put("date", strDate);

@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,17 +33,15 @@ public class MemberUpdate extends AppCompatActivity {
     EditText edt_houseId,edt_memberName,edt_age,edt_contactNo;
     TextView tv_dateOfBirth;
     ImageButton btn_memberDate;
-    Button btn_member;
+    Button btn_member,btn_delete;
+
+    RadioGroup radioGroup;
+
 
     private int date;
     private int month;
     private int year;
     private String id;
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +57,17 @@ public class MemberUpdate extends AppCompatActivity {
         tv_dateOfBirth = findViewById(R.id.tv_dateOfBirth);
         btn_memberDate = findViewById(R.id.btn_memberDate);
         btn_member = findViewById(R.id.btn_member);
+        btn_delete=findViewById(R.id.btn_delete_member);
+
+        radioGroup = findViewById(R.id.radio_grp);
 
 
         //    Log.e("MAINTENANCE_ID", String.valueOf(maintenanceId));
-        String strHouseId = i.getStringExtra("HOUSE ID");
-        String strMemberName = i.getStringExtra("MEMBER NAME");
+        String strMemberId=i.getStringExtra("MEMBER_ID");
+        String strHouseId = i.getStringExtra("HOUSE_ID");
+        String strMemberName = i.getStringExtra("MEMBER_NAME");
         String strAge = i.getStringExtra("AGE");
-        String strContactNo = i.getStringExtra("CONTACT NO.");
+        String strContactNo = i.getStringExtra("CONTACT_NO");
         String strDateOfBirth = i.getStringExtra("DATE_OF_BIRTH");
 
 
@@ -78,6 +82,15 @@ public class MemberUpdate extends AppCompatActivity {
         tv_dateOfBirth.setText(strDateOfBirth);
 
 
+
+        btn_member.setText("Update Member");
+        btn_delete.setVisibility(View.VISIBLE);
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteMember(strMemberId);
+            }
+        });
         btn_member.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +102,11 @@ public class MemberUpdate extends AppCompatActivity {
                 String strContactNo = edt_contactNo.getText().toString();
                 String strDateOfBirth = tv_dateOfBirth.getText().toString();
 
+                int id = radioGroup.getCheckedRadioButtonId();
+                RadioButton radioButton = findViewById(id);
+                String strRadioButton = radioButton.getText().toString();
+
+
 
                 Log.e("House Id",strHouseId );
                 Log.e("MemberName ", strMemberName);
@@ -98,7 +116,7 @@ public class MemberUpdate extends AppCompatActivity {
 
 
 
-                apiCall(strHouseId,strMemberName,strAge,strContactNo,strDateOfBirth );
+                apiCall(strMemberId,strHouseId,strMemberName,strAge,strContactNo,strDateOfBirth ,strRadioButton);
 
             }
         });
@@ -135,9 +153,38 @@ public class MemberUpdate extends AppCompatActivity {
 
     }
 
+    private void deleteMember(String id1) {
+
+        Log.e("TAG****", "deleteAPI Update "+id1);
+        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, util.MEMBER_URL+"/"+id1, new Response.Listener<String>() {
+            @Override
+
+            public void onResponse(String response) {
+                Log.e("api calling done", response);
+                Intent intent = new Intent(MemberUpdate.this, MemberShowActivity.class);
+                startActivity(intent);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> hashMap = new HashMap<>();
+                hashMap.put("memberId", id1);
+                return hashMap;
 
 
-    private void apiCall(String strHouseId, String strMemberName, String strAge ,String strDateOfBirth , String strContactNo ) {
+            }
+        };
+        VolleySingleton.getInstance(MemberUpdate.this).addToRequestQueue(stringRequest);
+
+
+    }
+
+    private void apiCall(String strMemberId, String strHouseId, String strMemberName, String strAge, String strDateOfBirth, String strContactNo, String strRadioButton) {
         StringRequest stringRequest = new StringRequest(Request.Method.PUT, util.MEMBER_URL, new Response.Listener<String>() {
             @Override
 
@@ -155,15 +202,14 @@ public class MemberUpdate extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> hashMap = new HashMap<>();
-                Log.e("id in update map:",strHouseId);
-                hashMap.put("memberId", strMemberName);
+                hashMap.put("memberId", strMemberId);
+                hashMap.put("houseId",strHouseId);
+                hashMap.put("name",strMemberName);
                 hashMap.put("age", strAge);
                 hashMap.put("dateOfBirth", strDateOfBirth);
-                hashMap.put("contact -No", strContactNo);
-
+                hashMap.put("contactNo", strContactNo);
+                hashMap.put("gender",strRadioButton);
                 return hashMap;
-
-
             }
         };
         VolleySingleton.getInstance(MemberUpdate.this).addToRequestQueue(stringRequest);

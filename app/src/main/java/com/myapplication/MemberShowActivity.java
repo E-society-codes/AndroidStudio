@@ -54,15 +54,18 @@ public class MemberShowActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        //JSONObject jsonObject2 = jsonObject1.getJSONObject("house");
+                        JSONObject jsonObject2 = jsonObject1.getJSONObject("house");
+                        String strHouseId=jsonObject2.getString("_id");
+                        String strMemberId=jsonObject1.getString("_id");
                         String strName = jsonObject1.getString("memberName");
                         String strDate=jsonObject1.getString("date");
                         String strGender=jsonObject1.getString("gender");
                         String strContact=jsonObject1.getString("contact no.");
-                        String strAge = jsonObject1.getString("Gender");
+                        String strAge = jsonObject1.getString("age");
 
                       MemberLangModel memberLangModel = new MemberLangModel();
-
+                        memberLangModel.set_id(strMemberId);
+                        memberLangModel.setHouseId(strHouseId);
                         memberLangModel.setMemberName(strName);
                         memberLangModel.setDateOfBirth(strDate);
                         memberLangModel.setAge(strAge);

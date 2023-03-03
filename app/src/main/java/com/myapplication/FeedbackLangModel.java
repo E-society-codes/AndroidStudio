@@ -2,7 +2,7 @@ package com.myapplication;
 
 public class FeedbackLangModel {
 
-    String _id,FeedbackId,HouseId,date,Feedback,acknowledgement;
+    String _id,HouseId,date,Feedback,acknowledgement;
 
     public String get_id() {
         return _id;
@@ -10,14 +10,6 @@ public class FeedbackLangModel {
 
     public void set_id(String _id) {
         this._id = _id;
-    }
-
-    public String getFeedbackId() {
-        return FeedbackId;
-    }
-
-    public void setFeedbackId(String feedbackId) {
-        FeedbackId = feedbackId;
     }
 
     public String getHouseId() {

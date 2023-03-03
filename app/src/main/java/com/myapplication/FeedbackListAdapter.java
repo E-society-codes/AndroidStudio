@@ -45,12 +45,13 @@ public class FeedbackListAdapter extends BaseAdapter {
         TextView tvData = view.findViewById(R.id.tv_data);
         tvData.setText(feedbackLangModelArrayList.get(position).get_id() + ""
                 + feedbackLangModelArrayList.get(position).getHouseId()
-                + feedbackLangModelArrayList.get(position).getFeedbackId() + ""
                 + feedbackLangModelArrayList.get(position).getDate() + ""
                 + feedbackLangModelArrayList.get(position).getFeedback() + ""
                 + feedbackLangModelArrayList.get(position).getAcknowledgement());
 
         ImageView imgEdit = view.findViewById(R.id.img_edit);
+        ImageView imgDelete = view.findViewById(R.id.img_delete);
+
 
         imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +63,8 @@ public class FeedbackListAdapter extends BaseAdapter {
 
                 Intent intent = new Intent(context , FeedbackUpdate.class);
 
-                //intent.putExtra("", id);
-                intent.putExtra("HOUSE ID",feedbackLangModelArrayList.get(position).getHouseId());
-                intent.putExtra("FEEDBACK ID",feedbackLangModelArrayList.get(position).getFeedbackId());
+                intent.putExtra("_id",id);
+                intent.putExtra("HOUSE_ID",feedbackLangModelArrayList.get(position).getHouseId());
                 intent.putExtra("DATE", feedbackLangModelArrayList.get(position).getDate());
                 intent.putExtra("FEEDBACK", feedbackLangModelArrayList.get(position).getFeedback());
                 intent.putExtra("ACKNOWLEDGEMENT", feedbackLangModelArrayList.get(position).getAcknowledgement());
@@ -73,6 +73,25 @@ public class FeedbackListAdapter extends BaseAdapter {
             }
 
         });
+
+        imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id1 = feedbackLangModelArrayList.get(position).get_id();
+                Log.e("id in edit: ", id1);
+
+
+                Intent intent = new Intent(context, FeedbackUpdate.class);
+                intent.putExtra("FEEDBACK_ID", id1);
+                intent.putExtra("FEEDBACK_HOUSE", feedbackLangModelArrayList.get(position).getHouseId());
+                intent.putExtra("DATE", feedbackLangModelArrayList.get(position).getDate());
+                intent.putExtra("FEEDBACK", feedbackLangModelArrayList.get(position).getFeedback());
+                intent.putExtra("ACKNOWLEDGEMENT", feedbackLangModelArrayList.get(position).getAcknowledgement());
+
+                context.startActivity(intent);
+            }
+        });
+
         return (view);
 
     }

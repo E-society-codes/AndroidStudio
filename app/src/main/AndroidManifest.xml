@@ -23,7 +23,7 @@
             android:name=".FeedbackLayout"
             android:exported="false" />
         <activity
-            android:name=".memberLayout"
+            android:name=".EventLayout"
             android:exported="false" />
         <activity
             android:name=".MemberShowActivity"
@@ -35,7 +35,7 @@
             android:name=".EventShowActivity"
             android:exported="false" />
         <activity
-            android:name=".EventLayout"
+            android:name=".memberLayout"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

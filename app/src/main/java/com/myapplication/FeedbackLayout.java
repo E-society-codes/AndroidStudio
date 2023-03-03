@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FeedbackLayout extends AppCompatActivity {
-    EditText edt_feedbackId,edt_feedbackHouseId,edt_giveFeedbackId,edt_acknowledgement;
+    EditText edt_feedbackHouseId,edt_giveFeedbackId,edt_acknowledgement;
     TextView tv_feedbackDate;
     ImageButton btn_feedbackDate;
     Button btn_feedback;
@@ -40,10 +40,11 @@ public class FeedbackLayout extends AppCompatActivity {
 
 
 
-        edt_feedbackId = findViewById(R.id.edt_feedbackId);
+       // edt_feedbackId = findViewById(R.id.edt_feedbackId);
         edt_feedbackHouseId = findViewById(R.id.edt_feedbackHouseId);
         edt_giveFeedbackId = findViewById(R.id.edt_giveFeedbackId);
         edt_acknowledgement = findViewById(R.id.edt_acknowledgement);
+        tv_feedbackDate = findViewById(R.id.tv_feedbackDate);
 
 
         Calendar calendar = Calendar.getInstance();
@@ -87,21 +88,16 @@ public class FeedbackLayout extends AppCompatActivity {
             public void onClick(View view) {
 
 
-               String strFeedbackId = edt_feedbackId.getText().toString();
+              // String strFeedbackId = edt_feedbackId.getText().toString();
                String strHouseId = edt_feedbackHouseId.getText().toString();
                String strDate = tv_feedbackDate.getText().toString();
                String strFeedback = edt_giveFeedbackId.getText().toString();
                String strAcknowledgement = edt_acknowledgement.getText().toString();
 
-                Log.e("FeedbackId:",strFeedbackId);
-                Log.e("HouseId:",strHouseId);
-                Log.e("Date: ", strDate);
-                Log.e("Feedback: ",strFeedback);
-                Log.e("Acknowledgement: ",strAcknowledgement);
 
 
 
-                apiCall(strFeedbackId,strHouseId,strDate,strFeedback,strAcknowledgement);
+                apiCall(strHouseId,strDate,strFeedback,strAcknowledgement);
 
             }
 
@@ -110,7 +106,7 @@ public class FeedbackLayout extends AppCompatActivity {
 
     }
 
-    private void apiCall(String strFeedbackId, String strHouseId, String strDate, String strFeedback, String strAcknowledgement) {
+    private void apiCall( String strHouseId, String strDate, String strFeedback, String strAcknowledgement) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, util.FEEDBACK_URL, new Response.Listener<String>() {
             @Override
 
@@ -132,7 +128,6 @@ public class FeedbackLayout extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> hashMap = new HashMap<>();
 
-                hashMap.put("feedbackId", strFeedbackId);
                 hashMap.put("houseID", strHouseId);
                 hashMap.put("date", strDate);
                 hashMap.put("feedback", strFeedback);

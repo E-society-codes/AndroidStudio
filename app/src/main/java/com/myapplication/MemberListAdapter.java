@@ -53,6 +53,7 @@ public class MemberListAdapter  extends BaseAdapter{
                 + memberLangModelArrayList.get(position).getDateOfBirth());
 
         ImageView imgEdit = view.findViewById(R.id.img_edit);
+        ImageView imgDelete = view.findViewById(R.id.img_delete);
 
         imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,12 +63,31 @@ public class MemberListAdapter  extends BaseAdapter{
 
                 Intent intent = new Intent(context, eventUpdateActivity.class);
                 intent.putExtra("MEMBER_ID", id);
-                intent.putExtra("HOUSE ID",memberLangModelArrayList.get(position).getHouseId());
-                intent.putExtra("MEMBER NAME", memberLangModelArrayList.get(position).getMemberName());
-                intent.putExtra("MEMBER AGE", memberLangModelArrayList.get(position).getAge());
-                intent.putExtra("CONTACT NUMBER:", memberLangModelArrayList.get(position).getContactNo());
+                intent.putExtra("HOUSE_ID",memberLangModelArrayList.get(position).getHouseId());
+                intent.putExtra("MEMBER_NAME", memberLangModelArrayList.get(position).getMemberName());
+                intent.putExtra("AGE", memberLangModelArrayList.get(position).getAge());
+                intent.putExtra("CONTACT_NUMBER:", memberLangModelArrayList.get(position).getContactNo());
                 intent.putExtra("GENDER", memberLangModelArrayList.get(position).getGender());
-                intent.putExtra("DATE OF BIRTH", memberLangModelArrayList.get(position).getDateOfBirth());
+                intent.putExtra("DATE_OF_BIRTH", memberLangModelArrayList.get(position).getDateOfBirth());
+
+                context.startActivity(intent);
+            }
+        });
+        imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id1 = memberLangModelArrayList.get(position).get_id();
+                Log.e("id in edit: ", id1);
+
+
+                Intent intent = new Intent(context,MemberUpdate.class);
+                intent.putExtra("MEMBER_ID", id1);
+                intent.putExtra("HOUSE_ID",memberLangModelArrayList.get(position).getHouseId());
+                intent.putExtra("MEMBER_NAME", memberLangModelArrayList.get(position).getMemberName());
+                intent.putExtra("AGE", memberLangModelArrayList.get(position).getAge());
+                intent.putExtra("CONTACT_NO", memberLangModelArrayList.get(position).getContactNo());
+                intent.putExtra("GENDER", memberLangModelArrayList.get(position).getGender());
+                intent.putExtra("DATE_OF_BIRTH", memberLangModelArrayList.get(position).getDateOfBirth());
 
                 context.startActivity(intent);
             }

@@ -59,18 +59,18 @@ public class FeedbackShowActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        //JSONObject jsonObject2 = jsonObject1.getJSONObject("house");
-                        String strFeedbackId = jsonObject1.getString("feedbackId");
-                        String strHouseID=jsonObject1.getString("houseId");
+                        JSONObject jsonObject2 =jsonObject1.getJSONObject("house");
+                        String strHouseId=jsonObject2.getString("_id");
+                        String strFeedbackId = jsonObject1.getString("_id");
                         String strFeedback=jsonObject1.getString("feedback");
                         String strDate=jsonObject1.getString("date");
                         String strAcknowledgement = jsonObject1.getString("acknowledgement");
 
                         FeedbackLangModel feedbackLangModel = new FeedbackLangModel();
 
-                        feedbackLangModel.setFeedbackId(strFeedbackId);
                         feedbackLangModel.setDate(strDate);
-                        feedbackLangModel.setHouseId(strHouseID);
+                        feedbackLangModel.setHouseId(strHouseId);
+                        feedbackLangModel.set_id(strFeedbackId);
                         feedbackLangModel.setFeedback(strFeedback);
                         feedbackLangModel.setAcknowledgement(strAcknowledgement);
 
